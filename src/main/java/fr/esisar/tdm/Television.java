@@ -42,7 +42,7 @@ public class Television {
       Thread.sleep(2000);
       frame.dispose();
     } else if (message.contains("green")) {
-      frame.getContentPane().setBackground(Color.GREEN);d
+      frame.getContentPane().setBackground(Color.GREEN);
       frame.setVisible(true);
       Thread.sleep(2000);
       frame.dispose();

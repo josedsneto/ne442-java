@@ -32,7 +32,7 @@ public class Ponggreen {
     // sur le port 5099
     int destport = 4001;
     int port = 4002;
-    String ip = "10.106.0.240";
+    String ip = "127.0.0.1";
     //
     JFrame frame = new JFrame("PongGreen");
     frame.setSize(300, 300);

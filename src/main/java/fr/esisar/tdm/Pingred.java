@@ -32,7 +32,7 @@ public class Pingred {
     // sur le port 5099
     int destport = 4002;
     int port = 4001;
-    String ip = "10.106.0.240";
+    String ip = "127.0.0.1";
     //
     JFrame frame = new JFrame("PingRouge");
     frame.setSize(300, 300);
