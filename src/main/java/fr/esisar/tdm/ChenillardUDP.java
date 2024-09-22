@@ -36,7 +36,7 @@ public class ChenillardUDP {
     Vector<Integer> ports = new Vector<>(Arrays.asList(4001, 4002, 4003, 4004));
     String ip = "127.0.0.1";
     //
-    JFrame frame = new JFrame("PingRouge");
+    JFrame frame = new JFrame("ChenillardUDP");
     frame.setSize(300, 300);
     frame.getContentPane().setBackground(Color.GREEN);
     frame.setVisible(true);
