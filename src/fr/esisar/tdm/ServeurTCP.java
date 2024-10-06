@@ -1,4 +1,4 @@
-package fr.esisar.tdm4;
+package fr.esisar.tdm;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

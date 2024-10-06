@@ -1,18 +1,15 @@
-package fr.esisar.tdm4;
+package fr.esisar.tdm;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.net.Socket;
 
-public class ClientTCP 
+public class SampleFileReader 
 {
     public static void main(String[] args) throws Exception
     {
     	long start = System.currentTimeMillis();
-    	ClientTCP fr = new ClientTCP();
+    	SampleFileReader fr = new SampleFileReader();
         fr.execute();
         long stop = System.currentTimeMillis();
         System.out.println("Elapsed Time = "+(stop-start)+" ms");
@@ -24,17 +21,9 @@ public class ClientTCP
      */
     private void execute() throws IOException
     {
-    	//Creation de la socket
-        Socket socket = new Socket();
-
-        // Connexion au serveur 
-        InetSocketAddress adrDest = new InetSocketAddress("127.0.0.1", 5099);
-        socket.connect(adrDest);
-        OutputStream os = socket.getOutputStream();
-        
     	System.out.println("Début lecture du fichier");
 
-        FileInputStream fis = new FileInputStream("/home/userir/file2.txt");
+        FileInputStream fis = new FileInputStream("/home/userir/file1.txt");
         byte[] buf = new byte[18];
 
         int len = fis.read(buf);
@@ -52,10 +41,10 @@ public class ClientTCP
         FileOutputStream fos = new FileOutputStream("/home/userir/file2.txt");
 
         // Ecriture des 18 premiers octets du buffer 
-        os.write(buf,0,18);
+        fos.write(buf,0,18);
 
         // Fermeture du fichier
-        os.close();
+        fos.close();
 
         System.out.println("Fin écriture du fichier");
     }
