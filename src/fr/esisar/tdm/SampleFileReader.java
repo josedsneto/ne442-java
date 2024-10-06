@@ -1,18 +1,14 @@
 package fr.esisar.tdm;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class SampleFileReader 
 {
     public static void main(String[] args) throws Exception
     {
-    	long start = System.currentTimeMillis();
-    	SampleFileReader fr = new SampleFileReader();
+        SampleFileReader fr = new SampleFileReader();
         fr.execute();
-        long stop = System.currentTimeMillis();
-        System.out.println("Elapsed Time = "+(stop-start)+" ms");
     }
 
 
@@ -21,10 +17,10 @@ public class SampleFileReader
      */
     private void execute() throws IOException
     {
-    	System.out.println("Début lecture du fichier");
+        System.out.println("Début lecture du fichier");
 
-        FileInputStream fis = new FileInputStream("/home/userir/file1.txt");
-        byte[] buf = new byte[18];
+        FileInputStream fis = new FileInputStream("/tmp/texte_a_lire.txt");
+        byte[] buf = new byte[10];
 
         int len = fis.read(buf);
         while(len!=-1)
@@ -35,18 +31,6 @@ public class SampleFileReader
         fis.close();
 
         System.out.println("Fin lecture du fichier");
-        
-        System.out.println("Début écriture du fichier");
-
-        FileOutputStream fos = new FileOutputStream("/home/userir/file2.txt");
-
-        // Ecriture des 18 premiers octets du buffer 
-        fos.write(buf,0,18);
-
-        // Fermeture du fichier
-        fos.close();
-
-        System.out.println("Fin écriture du fichier");
     }
 
 
