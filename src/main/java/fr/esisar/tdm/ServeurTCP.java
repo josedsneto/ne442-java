@@ -1,5 +1,6 @@
-package fr.esisar.tdm3;
+package fr.esisar.tdm4;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -22,7 +23,7 @@ public class ServeurTCP
 
 
 
-    private void execute() throws IOException, Exception
+    private void execute() throws IOException
     {
         //
         System.out.println("Demarrage du serveur ...");
@@ -30,7 +31,7 @@ public class ServeurTCP
         // Le serveur se declare aupres de la couche transport
         // sur le port 5099
         ServerSocket socketEcoute = new ServerSocket();
-        socketEcoute.bind(new InetSocketAddress(4250));
+        socketEcoute.bind(new InetSocketAddress(5099));
 
 
         // Attente de la connexion d'un client
@@ -47,24 +48,32 @@ public class ServeurTCP
         byte[] bufR = new byte[2048];
         InputStream is = socketConnexion.getInputStream();
         int lenBufR = is.read(bufR);
-        while (lenBufR!=-1)
-        {
-            String message = new String(bufR, 0 , lenBufR);
-            System.out.println("Message recu = "+message);
-            lenBufR = is.read(bufR);
-        }
         
-        if (lenBufR == -1)
+        FileOutputStream fos = new FileOutputStream("c:/tmp/ecriture_fichier.txt");
+        byte[] buf = new byte[18];
+        if (lenBufR!=-1)
         {
-        	System.out.println("Socket closed by client");
-        } else 
-        {
-        	System.out.println("Error");
+            // Ecriture des 6 premiers octets du buffer 
+            fos.write(buf,0,6);
         }
+        // Fermeture du fichier
+        fos.close();
+        System.out.println("Fin écriture du fichier");
 
+
+        // Emission d'un message en retour
+        byte[] bufE = new String("ok").getBytes();
+        OutputStream os = socketConnexion.getOutputStream();
+        os.write(bufE);
+        System.out.println("Message envoye = ok");
+
+        // Fermeture de la socket de connexion
         socketConnexion.close();
+
+
+        // Arret du serveur 
         socketEcoute.close();
         System.out.println("Arret du serveur .");
-        }
+    }
 
 }
