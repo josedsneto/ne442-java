@@ -1,18 +1,18 @@
 package fr.esisar.tdm;
 
 public class ThreadPiSix extends Thread {
-  public int start ;
+  public int start;
   public int stop;
   public double resultat;
 
-  public ThreadPiSix (int start, int stop) {
+  public ThreadPiSix(int start, int stop) {
     this.start = start;
     this.stop = stop;
   }
 
   public void run() {
     for (long k = start; k < stop; k++) {
-      resultat += 1d/(k*k);
+      resultat += 1d / (k * k);
     }
   }
 
@@ -21,7 +21,6 @@ public class ThreadPiSix extends Thread {
     ThreadPiSix e2 = new ThreadPiSix(500000000, 1000000000);
     ThreadPiSix e3 = new ThreadPiSix(1000000000, 1500000000);
     ThreadPiSix e4 = new ThreadPiSix(1500000000, 2000000000);
-
 
     long start = System.currentTimeMillis();
     e1.start();
