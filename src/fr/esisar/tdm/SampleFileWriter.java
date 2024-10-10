@@ -15,7 +15,7 @@ public class SampleFileWriter {
   private void execute() throws IOException {
     System.out.println("Début écriture du fichier");
 
-    FileOutputStream fos = new FileOutputStream("/tmp/text_ecrit_par_code.txt");
+    FileOutputStream fos = new FileOutputStream("/tmp/file1");
 
     byte[] buf = new byte[10];
 

@@ -19,30 +19,20 @@ public class ReaderWriter {
   private void execute() throws IOException {
     System.out.println("Début lecture du fichier");
 
-    FileInputStream fis = new FileInputStream("/tmp/file1.txt");
-    byte[] buf = new byte[30];
+    FileInputStream fis = new FileInputStream("/tmp/file1");
+    FileOutputStream fos = new FileOutputStream("/tmp/file2");
+
+    byte[] buf = new byte[10];
 
     int len = fis.read(buf);
     while (len != -1) {
-      displayBufContent(buf, len);
+      // displayBufContent(buf, len);
+      fos.write(buf, 0, 10);
       len = fis.read(buf);
     }
 
     fis.close();
-
-    System.out.println("Fin lecture du fichier");
-
-    System.out.println("Début écriture du fichier");
-
-    FileOutputStream fos = new FileOutputStream("/tmp/file2.txt");
-
-    // Ecriture des 18 premiers octets du buffer
-    fos.write(buf, 0, 30);
-
-    // Fermeture du fichier
     fos.close();
-
-    System.out.println("Fin écriture du fichier");
   }
 
   private void displayBufContent(byte[] buf, int len) {
