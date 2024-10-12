@@ -43,7 +43,6 @@ public class ClientTCP {
     InputStream is = socket.getInputStream();
 
     for (int match = 0; match < 10; match++) {
-      Thread.sleep(50);
       int lenBufR = is.read(bufR);
 
       if (lenBufR != -1) {
