@@ -34,7 +34,7 @@ public class CopieurTCP {
     int len = is.read(buf);
     while (len != -1) {
       // displayBufContent(buf, len);
-      fos.write(buf, 0, 10);
+      fos.write(buf, 0, len);
       len = is.read(buf);
     }
 

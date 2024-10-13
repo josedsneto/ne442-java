@@ -47,7 +47,7 @@ public class FileSenderTCP
 
         FileInputStream fis = new FileInputStream("/tmp/texte_a_lire.txt");
         OutputStream os = socketConnexion.getOutputStream();
-        byte[] buf = new byte[10];
+        byte[] buf = new byte[1024];
 
         int len = fis.read(buf);
         while(len!=-1)
