@@ -4,10 +4,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class ReaderWriter {
+public class Copieur {
   public static void main(String[] args) throws Exception {
     long start = System.currentTimeMillis();
-    ReaderWriter fr = new ReaderWriter();
+    Copieur fr = new Copieur();
     fr.execute();
     long stop = System.currentTimeMillis();
     System.out.println("Elapsed Time = " + (stop - start) + " ms");

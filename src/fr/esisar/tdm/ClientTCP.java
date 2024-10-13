@@ -47,10 +47,10 @@ public class ClientTCP {
     FileOutputStream fos = new FileOutputStream("/home/userir/file2.txt");
 
     // Ecriture des 18 premiers octets du buffer
-    os.write(buf, 0, 18);
+    fos.write(buf, 0, 18);
 
     // Fermeture du fichier
-    os.close();
+    socket.close();
 
     System.out.println("Fin écriture du fichier");
   }
